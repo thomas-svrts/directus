@@ -5,6 +5,7 @@ const uploadFile = vi.hoisted(() => vi.fn());
 vi.mock('@/utils/upload-file', () => ({
 	uploadFile,
 }));
+
 vi.mock('@/utils/notify', () => ({
 	notify: vi.fn(),
 }));
@@ -20,6 +21,7 @@ vi.mock('@/stores/server', () => ({
 		info: mockServerInfo,
 	}),
 }));
+
 vi.mock('./unexpected-error', () => ({
 	unexpectedError: vi.fn(),
 }));
