@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-const uploadFile = vi.fn();
+const uploadFile = vi.hoisted(() => vi.fn());
 
 vi.mock('@/utils/upload-file', () => ({
 	uploadFile,
@@ -43,11 +43,7 @@ describe('uploadFiles', () => {
 			});
 		});
 
-		const files = [
-			new File(['a'], 'a.txt'),
-			new File(['b'], 'b.txt'),
-			new File(['c'], 'c.txt'),
-		];
+		const files = [new File(['a'], 'a.txt'), new File(['b'], 'b.txt'), new File(['c'], 'c.txt')];
 
 		const uploadPromise = uploadFiles(files);
 
@@ -77,11 +73,7 @@ describe('uploadFiles', () => {
 			});
 		});
 
-		const files = [
-			new File(['a'], 'a.txt'),
-			new File(['b'], 'b.txt'),
-			new File(['c'], 'c.txt'),
-		];
+		const files = [new File(['a'], 'a.txt'), new File(['b'], 'b.txt'), new File(['c'], 'c.txt')];
 
 		const uploadPromise = uploadFiles(files);
 
