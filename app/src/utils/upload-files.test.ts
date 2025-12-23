@@ -43,7 +43,8 @@ describe('uploadFiles', () => {
 			});
 		});
 
-		const files = [new File(['a'], 'a.txt'), new File(['b'], 'b.txt'), new File(['c'], 'c.txt')];
+		const files = [new File(['a'], 'a.txt'), new File(['b'], 'b.txt'), 
+					   new File(['c'], 'c.txt')];
 
 		const uploadPromise = uploadFiles(files);
 
