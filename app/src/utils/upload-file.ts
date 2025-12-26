@@ -104,7 +104,8 @@ export async function uploadFile(
 				// Found previous uploads so we select the first one.
 				if (previousUploads.length > 0) {
 					upload.resumeFromPreviousUpload(previousUploads[0]!);
-					fileInfo.id = previousUploads[0]!.metadata['id'];
+					// Note: We don't reuse the file ID from metadata because it may refer to a deleted file.
+					// TUS resumes using the uploadUrl, and the server will provide the correct file ID via onAfterResponse.
 				}
 
 				// Start the upload
