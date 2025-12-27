@@ -22,7 +22,7 @@ export async function uploadFiles(
 	const uploadControllers: (Upload | null)[] = Array(files.length).fill(null);
 
 	const uploadQueue = new PQueue({
-		concurrency: options?.maxConcurrency && options.maxConcurrency > 0 ? options.maxConcurrency : Infinity,
+		concurrency: 8,
 	});
 
 	const startUpload = (file: globalThis.File, index: number) =>
